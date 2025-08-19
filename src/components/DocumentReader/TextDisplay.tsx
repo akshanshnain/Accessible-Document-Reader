@@ -16,6 +16,13 @@ interface TextDisplayProps {
   };
 }
 
+interface TextPart {
+  text: string;
+  highlight: boolean;
+  isCurrentMatch: boolean;
+  isSpeechHighlighted: boolean;
+}
+
 const TextDisplay: React.FC<TextDisplayProps> = ({ text, speechSynthesis, search }) => {
   const { words, currentWordIndex, isPlaying, isPaused } = speechSynthesis;
 
@@ -24,11 +31,11 @@ const TextDisplay: React.FC<TextDisplayProps> = ({ text, speechSynthesis, search
       return text;
     }
 
-    // If we have search results, highlight them
+    // If we have search results, prioritize search highlighting
     if (search && search.searchQuery && search.searchResults.length > 0) {
       const query = search.searchQuery.toLowerCase();
       const textLower = text.toLowerCase();
-      const parts = [];
+      const parts: TextPart[] = [];
       let lastIndex = 0;
       
       // Find all occurrences of the search query
@@ -42,7 +49,8 @@ const TextDisplay: React.FC<TextDisplayProps> = ({ text, speechSynthesis, search
           parts.push({
             text: text.substring(lastIndex, index),
             highlight: false,
-            isCurrentMatch: false
+            isCurrentMatch: false,
+            isSpeechHighlighted: false
           });
         }
         
@@ -53,7 +61,8 @@ const TextDisplay: React.FC<TextDisplayProps> = ({ text, speechSynthesis, search
         parts.push({
           text: text.substring(index, index + query.length),
           highlight: true,
-          isCurrentMatch
+          isCurrentMatch,
+          isSpeechHighlighted: false
         });
         
         lastIndex = index + query.length;
@@ -65,7 +74,8 @@ const TextDisplay: React.FC<TextDisplayProps> = ({ text, speechSynthesis, search
         parts.push({
           text: text.substring(lastIndex),
           highlight: false,
-          isCurrentMatch: false
+          isCurrentMatch: false,
+          isSpeechHighlighted: false
         });
       }
       
@@ -88,8 +98,8 @@ const TextDisplay: React.FC<TextDisplayProps> = ({ text, speechSynthesis, search
       ));
     }
 
-    // If we have speech synthesis words, highlight current word
-    if (words.length > 0) {
+    // If we have speech synthesis words and no active search, highlight current word
+    if (words.length > 0 && (!search || !search.searchQuery || search.searchResults.length === 0)) {
       return words.map((word: string, index: number) => {
         const isCurrentWord = index === currentWordIndex;
         const isHighlighted = isCurrentWord && isPlaying && !isPaused;
