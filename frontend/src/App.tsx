@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { CssBaseline, Box } from '@mui/material';
-import DocumentReader from './components/DocumentReader';
+import DocumentReader from './components/DocumentReader/index.tsx'; // Remove .tsx extension
 
 // Create accessibility-first theme with high contrast support
 const theme = createTheme({
