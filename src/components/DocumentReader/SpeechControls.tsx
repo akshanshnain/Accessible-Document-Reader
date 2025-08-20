@@ -34,9 +34,7 @@ const SpeechControls: React.FC<SpeechControlsProps> = ({ speechSynthesis, docume
     pauseSpeech,
     resumeSpeech,
     stopSpeech,
-    testVoice,
-    currentText
-  } = speechSynthesis;
+    testVoice  } = speechSynthesis;
 
   const handlePlay = () => {
     if (isPaused) {
