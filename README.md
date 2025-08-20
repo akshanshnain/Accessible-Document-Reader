@@ -5,6 +5,7 @@ An AI-powered web application designed to empower visually impaired users by con
 ## 🎯 Features
 
 ### Core Functionality
+
 - **Document Upload**: Support for PDF, JPG, PNG, TIFF, BMP files (up to 50MB)
 - **OCR Processing**: Client-side text extraction using Tesseract.js
 - **PDF Text Extraction**: Native PDF.js processing for better text quality
@@ -14,6 +15,7 @@ An AI-powered web application designed to empower visually impaired users by con
 - **Document Summary**: Word count, character count, and reading time estimates
 
 ### Text-to-Speech Features
+
 - **Multi-Voice Support**: Choose from available system voices
 - **Adjustable Speech Rate**: 0.5x to 2.0x speed control
 - **Volume Control**: Adjustable audio volume (0-100%)
@@ -23,6 +25,7 @@ An AI-powered web application designed to empower visually impaired users by con
 - **Keyboard Controls**: Space to play/pause, Escape to stop
 
 ### Search & Navigation
+
 - **Full-Text Search**: Search for words, phrases, or partial matches
 - **Search Results Navigation**: Navigate between multiple matches
 - **Context Preview**: See surrounding text for each search result
@@ -31,6 +34,7 @@ An AI-powered web application designed to empower visually impaired users by con
 - **Keyboard Shortcuts**: Ctrl+F to search, F3 for next, Shift+F3 for previous
 
 ### Accessibility Features
+
 - **WCAG 2.1 AA Compliant**: Built following modern accessibility standards
 - **Screen Reader Support**: Full compatibility with NVDA, JAWS, VoiceOver
 - **Keyboard Navigation**: Complete keyboard-only operation
@@ -40,6 +44,7 @@ An AI-powered web application designed to empower visually impaired users by con
 - **ARIA Labels**: Comprehensive accessibility markup
 
 ### Keyboard Shortcuts
+
 - **Space**: Play/Pause text-to-speech
 - **Escape**: Stop text-to-speech
 - **B**: Add bookmark
@@ -65,40 +70,44 @@ An AI-powered web application designed to empower visually impaired users by con
 ## 📦 Installation
 
 ### Prerequisites
-- Node.js 16+ 
+
+- Node.js 16+
 - npm or yarn package manager
 
 ### Setup Instructions
 
-1. **Navigate to the frontend directory:**
-   ```bash
-   cd frontend
-   ```
+1. **Clone the repository:**
+```bash
+git clone <repository-url>
+cd Accessible-Document-Reader
+```
 
 2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
+```bash
+npm install
+```
 
 3. **Start the development server:**
-   ```bash
-   npm start
-   ```
+```bash
+npm start
+```
 
 4. **Open your browser and navigate to:**
-   ```
-   http://localhost:3000
-   ```
+```sh
+http://localhost:3000
+```
 
 ## 🚀 Usage
 
 ### Uploading Documents
+
 1. Click the "Browse Files" button or drag and drop a document onto the upload area
 2. Supported formats: PDF, JPG, PNG, TIFF, BMP
 3. Maximum file size: 50MB
 4. The application will automatically process the document using OCR or PDF extraction
 
 ### Reading Documents
+
 1. Once processed, the extracted text will be displayed with document summary
 2. Use the text-to-speech controls to have the document read aloud
 3. Adjust speech rate and volume using the sliders
@@ -106,6 +115,7 @@ An AI-powered web application designed to empower visually impaired users by con
 5. Use bookmarks to save important sections
 
 ### Searching Documents
+
 1. Enter search terms in the search box
 2. Press Enter or click the search icon to find matches
 3. Use Previous/Next buttons to navigate between results
@@ -113,6 +123,7 @@ An AI-powered web application designed to empower visually impaired users by con
 5. Current match is highlighted in orange, other matches in yellow
 
 ### Keyboard Navigation
+
 - Use **Tab** to navigate between elements
 - Use **Space** to play/pause text-to-speech
 - Use **Escape** to stop text-to-speech
@@ -125,12 +136,14 @@ An AI-powered web application designed to empower visually impaired users by con
 ## 🎨 Accessibility Features
 
 ### Visual Accessibility
+
 - **High Contrast Themes**: Normal, High, and Very High contrast options
 - **Focus Indicators**: Clear visual focus outlines
 - **Search Highlighting**: Visual feedback for search results
 - **Reading Progress**: Visual progress indicator during speech
 
 ### Audio Accessibility
+
 - **Text-to-Speech**: Native browser speech synthesis
 - **Adjustable Speech Rate**: 0.5x to 2.0x speed control
 - **Volume Control**: Adjustable audio volume
@@ -138,6 +151,7 @@ An AI-powered web application designed to empower visually impaired users by con
 - **Voice Testing**: Test voice before reading
 
 ### Navigation Accessibility
+
 - **Keyboard Navigation**: Full keyboard-only operation
 - **Screen Reader Support**: ARIA labels and semantic HTML
 - **Live Regions**: Status announcements for screen readers
@@ -146,12 +160,14 @@ An AI-powered web application designed to empower visually impaired users by con
 ## 🧪 Testing
 
 ### Accessibility Testing
+
 1. **Lighthouse Audit**: Run Lighthouse accessibility audit
 2. **Screen Reader Testing**: Test with NVDA, JAWS, or VoiceOver
 3. **Keyboard Navigation**: Ensure all features work with keyboard only
 4. **Color Contrast**: Verify contrast ratios meet WCAG standards
 
 ### Manual Testing Checklist
+
 - [ ] All interactive elements are keyboard accessible
 - [ ] Screen reader announces all status changes
 - [ ] Focus indicators are visible and clear
@@ -173,7 +189,8 @@ An AI-powered web application designed to empower visually impaired users by con
 ## 🔧 Development
 
 ### Project Structure
-```
+
+```ini
 frontend/
 ├── src/
 │   ├── components/
@@ -203,6 +220,7 @@ frontend/
 ```
 
 ### Key Components
+
 - **DocumentReader**: Main application component with modular architecture
 - **FileUpload**: Drag-and-drop file upload with OCR processing
 - **TextDisplay**: Text rendering with speech and search highlighting
@@ -212,6 +230,7 @@ frontend/
 - **DocumentSummary**: Document statistics and metadata
 
 ### Adding New Features
+
 1. Ensure all new components include proper ARIA labels
 2. Test keyboard navigation for new interactive elements
 3. Add screen reader announcements for status changes
@@ -224,30 +243,35 @@ frontend/
 ### Common Issues
 
 **OCR not working:**
+
 - Ensure the image is clear and well-lit
 - Try different file formats
 - Check browser console for errors
 - For PDFs, ensure they contain extractable text
 
 **Text-to-speech not working:**
+
 - Verify browser supports Web Speech API
 - Check if speech synthesis is enabled
 - Try refreshing the page
 - Test with different voices
 
 **Search not working:**
+
 - Ensure document has been processed completely
 - Check if search query is entered
 - Verify search results are displayed
 - Test keyboard navigation for search controls
 
 **Accessibility features not working:**
+
 - Ensure JavaScript is enabled
 - Check browser accessibility settings
 - Verify screen reader compatibility
 - Test keyboard-only navigation
 
 ### Performance Optimization
+
 - Large files may take longer to process
 - Consider image quality for better OCR results
 - Use appropriate file formats for best results
@@ -266,6 +290,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 5. Submit a pull request
 
 ### Development Guidelines
+
 - Follow accessibility-first design principles
 - Maintain modular component architecture
 - Add proper TypeScript types
@@ -276,6 +301,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## 📞 Support
 
 For accessibility-related issues or questions:
+
 - Test with multiple screen readers
 - Verify keyboard navigation
 - Check WCAG compliance
